@@ -3,7 +3,7 @@ pipeline {
   agent any
 
    environment {
-    SVC_ACCOUNT_KEY = credentials('terraform-auth')
+    
   }
 
   stages {
@@ -11,8 +11,8 @@ pipeline {
     stage('Checkout') {
       steps {
         checkout scm
-        mkdir -p creds
-        echo $SVC_ACCOUNT_KEY | base64 -d > ./creds/serviceaccount.json
+        mkdir creds
+        copy serviceaccount.json /creds/serviceaccount.json
       }
     }
   
