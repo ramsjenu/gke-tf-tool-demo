@@ -40,7 +40,7 @@ pipeline {
 
     stage('TF Apply') {
       steps {
-          terraform apply -input=false myplan         
+          terraform apply myplan         
       }
     }
   } 
