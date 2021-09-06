@@ -2,10 +2,7 @@ pipeline {
 
   agent any
 
-   environment {
-    
-  }
-
+   
   stages {
 
     stage('Checkout') {
@@ -19,13 +16,13 @@ pipeline {
 
     stage('TF Init') {
       steps {
-          terraform init       
+        terraform init       
       }      
     }
 
     stage('TF Plan') {
       steps {
-          terraform plan -out myplan    
+        terraform plan -out myplan    
       }      
     }
     
@@ -40,7 +37,7 @@ pipeline {
 
     stage('TF Apply') {
       steps {
-          terraform apply myplan         
+        terraform apply myplan         
       }
     }
   } 
