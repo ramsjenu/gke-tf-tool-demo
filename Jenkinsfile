@@ -11,21 +11,21 @@ pipeline {
     stage('Checkout') {
       steps {
         checkout scm
-        'mkdir -p creds' 
-        'echo $SVC_ACCOUNT_KEY | base64 -d > ./creds/serviceaccount.json'
+        mkdir -p creds
+        echo $SVC_ACCOUNT_KEY | base64 -d > ./creds/serviceaccount.json
       }
     }
   
 
     stage('TF Init') {
       steps {
-          'terraform init'        
+          terraform init       
       }      
     }
 
     stage('TF Plan') {
       steps {
-          'terraform plan -out myplan'        
+          terraform plan -out myplan    
       }      
     }
     
@@ -40,7 +40,7 @@ pipeline {
 
     stage('TF Apply') {
       steps {
-          'terraform apply -input=false myplan'         
+          terraform apply -input=false myplan         
       }
     }
   } 
