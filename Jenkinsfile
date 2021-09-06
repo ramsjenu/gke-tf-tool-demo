@@ -16,13 +16,13 @@ pipeline {
 
     stage('TF Init') {
       steps {
-        sh 'terraform init'       
+        sh 'terraform.exe init'       
       }      
     }
 
     stage('TF Plan') {
       steps {
-        sh 'terraform plan -out myplan'    
+        sh 'terraform.exe plan -out myplan'    
       }      
     }
     
@@ -37,7 +37,7 @@ pipeline {
 
     stage('TF Apply') {
       steps {
-        sh 'terraform apply myplan'         
+        sh 'terraform.exe apply myplan'         
       }
     }
   } 
